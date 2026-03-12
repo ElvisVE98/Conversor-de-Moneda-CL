@@ -1,0 +1,77 @@
+/*variables de diseño*/
+
+
+:root{
+  /*colores de fondo*/
+  --bg-principal :#0f1523; /*color para el fondo de la pagina*/
+  --bg-tarjetas : #1a2235;
+  --bg-header :#202d49; /*color para kas cajas y cards*/
+
+  /*colores de texto*/
+  --texto-blanco : #ffffff;
+  --texto-gris : #8892b0;
+  --texto-verde : #39d416;
+
+  /*colores de los acentos (texto que van a resaltar)*/
+  --acento-azul :#2563eb; /* boton brillante de convertir a moneda*/
+  --acento-verde :#10b981; /*tendencias positivas*/
+  --acento-rojo :#ef4444; /*tendencias negativas*/
+  --acento-amarillo :#393937; /*tendencias neutra*/
+
+  --degradado-azul : linear-gradient(1deg, #06f8fc 0%, #033084 100%);
+  --degradado-btn : linear-gradient(1deg, #19b7f5 0%, #117867 100%);
+
+  /*estructura*/
+  --border-radio : 20px; /* esquinas redondeadas de las tarjetas*/
+
+  /*DEGRADADO EN LOS BORDES DE CARDS CALCULADORA*/
+  --color-glow:       rgba(0,207,255,0.4); /*Brillo cercano*/
+  --color-glow-medio: rgba(0,207,255,0.2); /*Brillo medio*/
+  --color-glow-suave: rgba(0,207,255,0.1); /*Brillo lejano suave*/
+
+  --color-glow-hover:       rgba(0,207,255,0.6); /*Brillo cercano*/
+  --color-glow-hover-medio: rgba(0,207,255,0.3); /*Brillo medio*/
+  --color-glow-hover-suave: rgba(0,207,255,0.15); /*Brillo lejano suave*/
+
+  /*DEGRADADO EN LOS BORDES DE LAS CARDS */
+
+  --color-degread-card : #00cfff, #0077ff, #00ff88, #00cfff;
+
+
+
+
+/*color para modo oscuro*/
+  --bg-tarjetas-conversor:#0b0f19;
+}
+
+
+/*variables para el tema claro*/
+body.tema-claro{
+
+  /*colores de fondos mucho mas claros*/
+  --bg-principal : #ececec;
+  --bg-tarjetas : #fdfdfd;
+  --bg-tarjetas-conversor :#ececec;
+
+  /* colores de los textos invertidos*/
+  --texto-blanco : #111827;
+  --texto-gris : #4b5563;
+
+/*DEGRADADO EN LOS BORDES DE CARDS CALCULADORA*/
+
+  --color-glow:       rgba(176, 37, 235, 0.5);
+  --color-glow-medio: rgba(126, 37, 235, 0.3);
+  --color-glow-suave: rgba(37, 99, 235, 0.15);
+
+
+  --color-glow-hover:       rgba(229, 37, 235, 0.6);
+  --color-glow-hover-medio: rgba(37, 99, 235, 0.3);
+  --color-glow-hover-suave: rgba(125, 0, 251, 0.4);
+
+  --degradado-azul : linear-gradient(1deg, #b004ff 0%, #2c0a32 100%);
+
+
+
+
+
+  }

@@ -1,0 +1,24 @@
+
+
+.footer-principal{
+
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    margin-top: 20%;
+    align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.395);
+}
+
+
+.footer-links a {
+
+    text-decoration: none;
+    color: var(--texto-gris);
+    transition: all 0.3s ease;
+    padding: 10px;
+}
+
+.footer-links a:hover{
+    color: var(--texto-blanco);
+}

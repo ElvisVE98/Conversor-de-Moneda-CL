@@ -1,0 +1,27 @@
+/* selector universal para resetear los margenes por defecto de la pagina web*/
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+
+body{
+
+  background-color: var(--bg-principal);
+  color: var(--texto-blanco);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+/*hace que el texto se vea mas nitido en pantallas modernas*/
+  -webkit-font-smoothing : antialiased;
+}
+
+
+/* engloba todo el archivo del HTML es el ID padre*/
+#app{
+  max-width: 1200px; /* Evita que la página crezca más allá de 1200 píxeles de ancho */
+  margin: 0 auto; /* centra la caja horizontalmente en la pantalla */
+  padding: 30px 20px; /*30px para la parte de arriba y abajo y 20px para los lados*/
+
+}

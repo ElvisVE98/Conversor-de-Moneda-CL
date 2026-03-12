@@ -1,0 +1,217 @@
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------diseño de seccion conversor de moneda---------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+
+.hero-principal{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.hero-titulos{
+
+  text-align: center;
+  max-width: 600px; /*para que los subtitulos no se estiren tanto a los lados*/
+}
+
+.hero-titulos h1  {
+
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.texto-resaltado{
+
+  background: var(--degradado-azul); /*variable del degradado*/
+  -webkit-background-clip: text; /*cortamos el fondo usando la forma del texto*/
+  background-clip: text; /* version estandar*/
+  -webkit-text-fill-color: transparent; /*ponemos el texto transparente para que se vea el fondo cortado*/
+  color: transparent;
+  font-weight: 800;/*opcional, solo para que se note mas el efecto*/
+}
+
+.subtitulo{
+
+  color: var(--texto-gris);
+  font-size: 1.1rem;
+  line-height: 1.6; /*para darle como interlineado para que sea mas facil leer*/
+}
+
+
+.conversor-card-ancha{
+  background-color: var(--bg-tarjetas);
+  width: 100%;
+  max-width: 850px; /*evita que la tarjeta sea mas ancha que 850px*/
+  border-radius: var(--border-radio);
+  padding: 40px;
+  /*box-shadow: 0 30px 10px rgba(0, 0, 0, 0.2); /*darle un sombreado suave*/
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  box-shadow: 
+  0 0 20px var(--color-glow),
+  0 0 40px var(--color-glow-medio), /*Brillo medio*/
+  0 0 80px var(--color-glow-suave); /*Brillo lejano suave*/
+  border: 1px solid rgba(0, 207, 255, 0.3); /* borde tenue del mismo color */
+
+}
+
+.conversor-card-ancha:hover{
+  box-shadow:
+  0 0 40px var(--color-glow-hover), /*Brillo cercano*/
+  0 0 70px var(--color-glow-hover-medio) , /*Brillo medio*/
+  0 0 90px var(--color-glow-hover-suave); /*Brillo lejano suave*/ 
+}
+
+
+
+/*fila superior de los inputs*/
+
+.conversor-input-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 30px;
+  
+}
+
+/*fila inferior del footer de textos*/
+
+.conversor-footer{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria entre la zona de arriba y abajo */
+}
+
+.info-tasa{
+
+  color: var(--texto-gris);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#tasa-actual{
+
+  color: var(--texto-blanco);
+  font-weight: 600;
+}
+
+
+/*estructura para los campos de texto*/
+
+/*el contenedor del texto cantidad y la caja*/
+
+.input-group{
+
+  display: flex;
+  flex-direction: column; /*apilar en columna texto arriba y caja abajo*/
+  gap: 10px;
+  flex: 1; /*para que la caja de la izquierda y la derecha usen el mismo ancho*/
+}
+
+
+.input-group label{
+
+  font-size: 1.rem;
+  color: var(--texto-gris);
+  align-items: center;
+}
+
+.input-wrapper{
+
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-tarjetas-conversor);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  height: 65px;
+  padding: 0 20px;
+  width: 100%; /* NUEVO: Obligamos al cajón a que no mida más del 100% de su padre */
+}
+
+.input-wrapper input,
+.input-wrapper select{
+
+  background: transparent; /*quitamos el fondo blanco*/
+  border: none; /*quitamos el borde*/
+  color: var(--texto-blanco);
+  font-size: 1.3rem;
+  font-weight: 600;
+  outline: none;
+}
+
+
+.input-wrapper input {
+  flex: 1;
+  padding: 0 10px;
+  width: 100%; /*obligamos al input encogerse de ser necesario*/
+  min-width: 0;
+}
+
+.input-wrapper select{
+
+  cursor: pointer;
+  color: var(--texto-gris);
+}
+
+
+.btn-swap {
+
+  background-color: var(--bg-principal);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex ;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: all 0.3s ease;
+}
+
+.btn-swap:hover {
+
+  background-color: var(--texto-gris);
+  transform: rotate(180deg);
+}
+
+
+.btn-primary {
+
+  background:var(--degradado-btn);
+  color: var(--texto-blanco);
+  border: none;
+  padding: 12px 24px ;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top : 10px ;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+
+}
+
+.btn-primary:hover {
+
+  filter: brightness(1.2);
+  transform: scale(1.05);
+
+}
+
+.btn-swap{
+
+  color: var(--texto-blanco);
+}

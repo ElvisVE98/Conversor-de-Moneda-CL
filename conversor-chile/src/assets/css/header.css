@@ -1,0 +1,96 @@
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------diseño de cabecera - HEADER---------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+.header-principal{
+  
+  display: flex; /* Convierte la caja en una fila flexible */
+  justify-content: space-between; /* Separa los 3 elementos al máximo posible */
+  align-items: center; /* Los alinea perfectamente en el centro vertical */
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  }
+
+.logo-icon i {
+
+  color: rgb(0, 140, 255);
+}  
+
+.header-logo{
+
+  flex: 1;
+  display: flex;
+  justify-content: flex-start; /*hace que el contenido este a la izquierda*/
+  align-items: center;
+  gap: 10px; /*espacio de 10px entre el icono y la palabra FinChile */
+  font-size: 1.5rem;
+  font-weight: bold;  
+}
+
+.header-nav{
+  flex: 1;
+  display: flex;
+  justify-content: center; /* el flex es para poner las filas flexibles */
+  gap: 30px;
+}
+
+.header-nav a {
+
+  color: var(--texto-gris);
+  text-decoration: none; /*con esto le quitamos el subrayado por defecto que tiene la etiqueta "a"*/
+  font-size: 1rem;
+  font-weight: 600;
+  transition: color 0.4s ease; /*si llega a cambiar de color hara una transicion suave en 0.3 segundo, ease es para que sea suave*/
+}
+
+/*usamos la pseudo-clase hover para animacion*/
+.header-nav a:hover{
+
+  color: var(--texto-blanco); /*al pasar el mouse sobre las letras cambiara a color blanco*/
+}
+
+.header-acciones{
+
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /*empuja el contenido hacia la extrema derecha*/
+}
+
+.toggle-checkbox{
+  display: none; /*ocultar el checkbox*/
+}
+
+
+/*diseño para la forma de pastilla del toggle*/
+.toggle-label{
+
+width: 50px;
+height: 26px;
+background-color: var(--bg-tarjetas);
+border-radius: 100px ; /*con esto le damos el efecto de una pastilla*/
+border: 1px solid rgba(255, 255, 255, 0.1);
+position: relative; /* con esto hacemos que el efecto de bolita no se salga del checkbox*/ 
+cursor: pointer;
+}
+
+
+/*diseño para que salga la bolita */
+.toggle-bolita{
+
+  width: 20px;
+  height: 20px;
+  background-color: var(--texto-gris);
+  border-radius: 50px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: all 0.3s ease; /* repetimos la animacion suave con ease*/
+}
+
+/* El símbolo '+' significa: "Busca la etiqueta que está justo al lado del checkbox marcado" */
+.toggle-checkbox:checked + .toggle-label .toggle-bolita{
+
+  transform: translateX(24px); /* Movemos la bolita 24 píxeles hacia la derecha */
+  background-color: var(--texto-verde);
+}

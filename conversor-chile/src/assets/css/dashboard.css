@@ -1,0 +1,60 @@
+.grafico-card{
+
+    background-color: var(--bg-tarjetas);
+    padding: 40px;
+    border-radius: var(--border-radio);
+    box-shadow: 0 30px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    
+}
+
+.grafico-header{
+
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;   
+    align-items: center;    
+}
+
+.grafico-header p {
+
+    color : var(--texto-gris);
+    font-size: 0.9rem;
+}
+
+.grafico-filtros{
+    display: flex;
+    gap: 8px;
+}
+
+.btn-filtro{
+
+    background: transparent;
+    border: none;
+    color: var(--texto-gris);
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding:6px 12px ;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-filtro:hover{
+
+    color: var(--texto-blanco);
+}
+
+.btn-filtro.activo {
+
+    color: var(--texto-blanco);
+    background-color: rgba(255, 255,255 ,0.1 );
+}
+
+
+.grafico-body{
+
+    position: AB;
+    height: 300px;
+    width: 100%;
+}
