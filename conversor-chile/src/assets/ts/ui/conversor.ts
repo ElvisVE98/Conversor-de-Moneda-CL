@@ -1,4 +1,4 @@
-import { ObtenerDatosMoneda } from "../services/apiservices";
+import { ObtenerDatosMoneda } from '../services/apiservices';
 
 // logica para realizar la conversion de las monedas
 //capturar los campos de ingreso de moneda y selector de moneda
@@ -9,54 +9,60 @@ const inputDestino = document.getElementById('monto-destino') as HTMLInputElemen
 const selectDestino = document.getElementById('moneda-destino') as HTMLSelectElement;
 const spanTasa = document.getElementById('tasa-actual') as HTMLSpanElement;
 const spanTiempo = document.getElementById ('tiempo-actualizacion') as HTMLSpanElement;
+const btnSwap = document.querySelector('.btn-swap') as HTMLButtonElement; // para las clases
+
 // const btnconvertir = document.getElementById('btn-convertir') as HTMLButtonElement;
+
+
+const obtenerIndicadorApi = (moneda :string) =>{
+    switch(moneda) {
+        case 'USD' : return 'dolar';
+        case 'EUR' : return 'euro';
+        case 'UF'  : return 'uf';
+        default    : return '';        
+    }
+};
+
 
 // funcion principal  asincrona de flecha 
 export const calcularConversion = async()=>{
-
-    //que moneda eligio el usuario???
-    const monedaSeleccionda = selectOrigen.value;
-
-    //hacer un switch para cambir USD por dolar UF por uf segun nombres de la API
-    let indicadorAPI : string = "";
-
-    switch(monedaSeleccionda) {
-        case 'USD' : indicadorAPI = 'dolar'; break;
-        case 'EUR' : indicadorAPI = 'euro' ; break;
-        case 'UF'  : indicadorAPI = 'uf';    break;
-        default    : indicadorAPI = 'dolar' ; break;
-    }
-
-    // ahora si llamamos la API usando el await para esperar respuesta
-    const datos = await ObtenerDatosMoneda(indicadorAPI);
-
-    //verificamos si los datos llegaron bien y hacemos la logica 
-    // el operador && significa "ademas" o "and" usado en If para hacer preguntas dobles
-    if(datos && datos.serie.length >0) {
-        const valorActual = datos.serie[0].valor; //tomamos el ultimo valor osea el valor del dia
-
-        spanTasa.textContent = `1 ${monedaSeleccionda} = ${valorActual} CLP`;
-       // 3. MAGIA AQUÍ: Creamos la hora actual y la inyectamos
-        const horaActual = new Date().toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' });
-        spanTiempo.textContent = `a las ${horaActual}`
-
-
-    //que numero escribio el usuario? usamos value para saber
-    // el '+' convierte el texto '10' a numero 10    
+    const origen = selectOrigen.value;
+    const destino = selectDestino.value;
     const monto = +inputOrigen.value;
 
-    // SI EL USUARIO BORRA Y DEJA VACIO, NO SE CALCULA NADA.
+    // 1. Buscamos el valor de la moneda ORIGEN en la API SIEMPRE
+    let valorOrigen = 1; 
+    if (origen !== 'CLP') {
+        const datosOrigen = await ObtenerDatosMoneda(obtenerIndicadorApi(origen));
+        if (datosOrigen && datosOrigen.serie.length > 0) {
+            valorOrigen = datosOrigen.serie[0].valor;
+        }
+    }
+
+    // 2. Buscamos el valor de la moneda DESTINO en la API SIEMPRE
+    let valorDestino = 1; 
+    if (destino !== 'CLP') {
+        const datosDestino = await ObtenerDatosMoneda(obtenerIndicadorApi(destino));
+        if (datosDestino && datosDestino.serie.length > 0) {
+            valorDestino = datosDestino.serie[0].valor;
+        }
+    }
+
+    // 3. Actualizamos los textos de Tasa y Hora SIEMPRE, haya o no haya monto escrito
+    spanTasa.textContent = `1 ${origen} = ${(valorOrigen / valorDestino).toFixed(2)} ${destino}`;
+    const horaActual = new Date().toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' });
+    spanTiempo.textContent = `a las ${horaActual}`;
+
+    // 4. EL MURO: Si el usuario borra y deja vacío, limpiamos el destino y cortamos la función aquí
     if(monto === 0 || isNaN(monto)){
-        inputOrigen.value = "";
+        inputDestino.value = "";
         return;
     }
 
-        const resultado = monto * valorActual;
-        inputDestino.value = new Intl.NumberFormat('es-CL').format(Math.round(resultado)); // con esto formateamos a los numeros en moneda chilena
-
-    console.log(`Calculo exitoso: ${monto} de la moneda ${monedaSeleccionda}`);
-
-    }
+    // 5. Si pasamos el muro (hay un número válido), hacemos el cálculo y lo mostramos
+    const montoEnCLP = monto * valorOrigen;
+    const resultado = montoEnCLP / valorDestino;
+    inputDestino.value = new Intl.NumberFormat('es-CL', { maximumFractionDigits: 2 }).format(resultado);
 };
 
   // escuchadores 
@@ -66,10 +72,19 @@ export const calcularConversion = async()=>{
   //escuchar cuando el usuario cambia la moneda " para los <select> usamos el evento change"
   selectOrigen.addEventListener('change',calcularConversion);
 
-  calcularConversion();
+// escuhar al boton swap para cambiar el tipo de cambio
+  btnSwap.addEventListener('click',()=>{
+    //para guardar la moneda de origen
+    const temporal =selectOrigen.value;
+    // pasar la moneda de destino a el de origen EJ CLP pasa a la izquierda y USD a la derecha
+    selectOrigen.value = selectDestino.value;
+    // completar el destino con la variable temporal 
+    selectDestino.value = temporal;
+  })
 
+  calcularConversion();
 //escuchar el clic del boton convertir
-//   btnconvertir.addEventListener('click',calcularConversion);
+//btnconvertir.addEventListener('click',calcularConversion);
 
   
 

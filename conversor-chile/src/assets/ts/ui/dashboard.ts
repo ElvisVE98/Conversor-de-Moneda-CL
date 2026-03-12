@@ -14,7 +14,7 @@ const btn6M = document.getElementById('btn-6m') as HTMLButtonElement;
 const btn1Y = document.getElementById('btn-1y') as HTMLButtonElement;
 
 
-//variable global de caja vacia afuera para guardar ek grafico y poer borrarlo
+//variable global de caja vacia afuera para guardar el grafico y poder borrarlo
 
 let miGrafico : Chart | null = null;
 
