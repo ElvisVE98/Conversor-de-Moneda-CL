@@ -94,3 +94,33 @@ cursor: pointer;
   transform: translateX(24px); /* Movemos la bolita 24 píxeles hacia la derecha */
   background-color: var(--texto-verde);
 }
+
+
+
+/* ======================================================= */
+/* ====== DISEÑO RESPONSIVO (MÓVILES Y TABLETS) ========== */
+/* ======================================================= */
+
+/* 768px es el estandar universal para una tablet pequeña*/
+
+@media screen and (max-width: 768px) {
+  
+  .header-principal{
+    flex-direction: column; /* para apilar los elementos de arriba hacia abajo*/
+    gap: 20px; /*espacio vertical entre el logo, menu y boton*/
+    padding-bottom: 15px;
+  }
+
+  .header-logo,
+  .header-nav,
+  .header-acciones{
+    flex: auto;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .header-nav{
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}

@@ -5,8 +5,6 @@
   box-sizing: border-box;
 }
 
-
-
 body{
 
   background-color: var(--bg-principal);
@@ -23,5 +21,18 @@ body{
   max-width: 1200px; /* Evita que la página crezca más allá de 1200 píxeles de ancho */
   margin: 0 auto; /* centra la caja horizontalmente en la pantalla */
   padding: 30px 20px; /*30px para la parte de arriba y abajo y 20px para los lados*/
+
+}
+
+
+/* ======================================================= */
+/* ====== DISEÑO RESPONSIVO (MÓVILES Y TABLETS) ========== */
+/* ======================================================= */
+
+@media screen and (max-width: 768px) {
+  
+  #app {
+    padding: 15px 10px; 
+  }
 
 }

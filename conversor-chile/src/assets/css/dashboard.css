@@ -54,7 +54,40 @@
 
 .grafico-body{
 
-    position: AB;
+    position: relative;
     height: 300px;
     width: 100%;
+}
+
+/* ======================================================= */
+/* ====== DISEÑO RESPONSIVO (MÓVILES Y TABLETS) ========== */
+/* ======================================================= */
+
+@media screen and (max-width: 768px) {
+  
+  /* 1. RECUPERANDO ESPACIO VITAL */
+  /* Reducimos el margen interno a la mitad para que el gráfico pueda estirarse más */
+  .grafico-card {
+    padding: 20px;
+  }
+
+  /* 2. PROTEGIENDO EL ENCABEZADO Y LOS BOTONES */
+  /* Cambiamos la fila a columna para que los botones de filtro queden debajo del título */
+  .grafico-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* 3. CENTRANDO LOS FILTROS */
+  /* Nos aseguramos de que los botones de tiempo se centren y, si algún día agregas más, bajen de línea solos */
+  .grafico-filtros {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* 4. ACHICANDO EL LIENZO DEL GRÁFICO */
+  .grafico-body {
+    height: 250px;
+  }
 }

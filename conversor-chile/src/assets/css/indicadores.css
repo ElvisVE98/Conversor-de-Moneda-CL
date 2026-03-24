@@ -135,3 +135,34 @@
   font-size: 0.85rem;
   font-weight: bold;
 }
+
+
+/* ======================================================= */
+/* ====== DISEÑO RESPONSIVO (MÓVILES Y TABLETS) ========== */
+/* ======================================================= */
+
+@media screen and (max-width: 768px) {
+  
+  #panel-indicadores {
+    /* Cambiamos de 4 columnas a 2 columnas. Ahora se verán como un bloque de 2x2 */
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 40px;
+    margin-bottom: 40px;
+    gap: 15px; 
+  }
+
+  /* Achicamos un poco el número gigante del valor para que quepa bien en su nueva caja */
+  .valor-principal {
+    font-size: 1.6rem; /* Bajamos de 2rem a 1.6rem */
+  }
+}
+
+/* Para Celulares pequeños (480px o menos) */
+/* como nota se puede tener varios @media para ser súper preciso */
+@media screen and (max-width: 480px) {
+  
+  #panel-indicadores {
+    /* Cambiamos a 1 sola columna. Ahora las 4 tarjetas estarán apiladas hacia abajo */
+    grid-template-columns: 1fr; 
+  }
+}

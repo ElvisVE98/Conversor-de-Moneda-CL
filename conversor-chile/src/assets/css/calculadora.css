@@ -215,3 +215,53 @@
 
   color: var(--texto-blanco);
 }
+
+
+/* ======================================================= */
+/* ====== DISEÑO RESPONSIVO (MÓVILES Y TABLETS) ========== */
+/* ======================================================= */
+
+@media screen and (max-width: 768px) {
+
+  
+  /* para reducir el tamaño gigante del título y el interlineado del subtítulo */
+  .hero-titulos h1 {
+    font-size: 2.5rem; /* Pasamos de 4rem a 2.5rem */
+  }
+  
+  .subtitulo {
+    font-size: 1rem;
+  }
+
+
+  /* achicar el margen interno de 40px a 20px para que las cajas respiren */
+  .conversor-card-ancha {
+    padding: 20px;
+  }
+
+
+  /* se convierten las filas horizontales en columnas verticales */
+  .conversor-input-row,
+  .conversor-footer {
+    flex-direction: column; 
+    gap: 15px; /* se reduce la separación entre los elementos apilados */
+  }
+
+  /* Como las cajas ahora están una arriba de otra, las flechas de Izq/Der ya no tienen sentido. 
+     Lo giramos 90 grados para que apunten Arriba/Abajo */
+  .btn-swap {
+    margin-top: 10px; /* se le quita el margen superior gigante que tenía */
+    transform: rotate(90deg); /* Flechas Arriba/Abajo */
+  }
+
+  /* Al pasar el dedo o mouse, hacemos que complete el giro */
+  .btn-swap:hover {
+    transform: rotate(270deg); 
+  }
+
+  /* Centramos el texto de la información de la tasa para que no quede raro a la izquierda */
+  .info-tasa {
+    justify-content: center;
+    text-align: center;
+  }
+}

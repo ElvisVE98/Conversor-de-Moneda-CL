@@ -22,3 +22,28 @@
 .footer-links a:hover{
     color: var(--texto-blanco);
 }
+
+
+/* ======================================================= */
+/* ====== DISEÑO RESPONSIVO (MÓVILES Y TABLETS) ========== */
+/* ======================================================= */
+
+@media screen and (max-width: 768px) {
+  
+  /* 1. APILANDO EL CONTENIDO */
+  .footer-principal {
+    flex-direction: column; /* Pasamos de tener izquierda/derecha a tener arriba/abajo */
+    padding: 20px; /* Reducimos el margen interno a la mitad */
+    margin-top: 40px; /* Cambiamos el 20% errático por un espacio fijo de 40px */
+    gap: 20px; /* Le damos aire entre el texto y los enlaces */
+    text-align: center; /* Obligamos a todo el texto a centrarse */
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap; /* Si en el futuro se agrega 5 enlaces y no caben, saltarán de línea solos */
+    justify-content: center; /* se centran los enlaces perfectamente debajo del texto */
+    gap: 10px; 
+  }
+}
+
